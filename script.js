@@ -48,3 +48,8 @@ function updateStatus(remaining=null){
     document.getElementById('status').innerText = "剩餘數量：" + status;
   }
 }
+
+// 處理根路由，確保 / 會回傳 index.html
+app.get('/', (req, res) => {
+  res.sendFile(path.join(__dirname, 'public', 'index.html'));
+});
